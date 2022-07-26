@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/Token Verify Test[1:6]","start":1657844286401,"end":1657844288898,"title":"src\/test\/resources\/Token Verify Test[1:6] 20:18:06.401-20:18:08.898 Verify valid token."},{"id":2,"group":1,"content":"src\/test\/resources\/Token Verify Test[2:25]","start":1657844288905,"end":1657844289198,"title":"src\/test\/resources\/Token Verify Test[2:25] 20:18:08.905-20:18:09.198 verify invalid token"},{"id":3,"group":1,"content":"src\/test\/resources\/Token Verify Test[3:37]","start":1657844289202,"end":1657844289626,"title":"src\/test\/resources\/Token Verify Test[3:37] 20:18:09.202-20:18:09.626 invalid username with valid token","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
